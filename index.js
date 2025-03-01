@@ -23,7 +23,7 @@ try{
     console.info(prefix+"Convert Html to Game by CreatorCraft...");
     let jsFileCache = "";
     let cssFileCache = "iframe{ top: 0%; left: 0%; bottom: 0%; width: 100%; height: 100%; right: 0%; border: none; }";
-    let htmlFileCache = "<iframe  srcdoc='"+htms.replaceAll("'", "\\'")+"'>Error! Not Load</iframe>";
+    let htmlFileCache = "<iframe  srcdoc='"+htms.replaceAll("'", "\\'").replaceAll(/(\r\n|\r|\n)/g, "\\n")+"'>Error! Not Load</iframe>";
     fs.writeFileSync(dirGame+"/main.js", jsFileCache);
     fs.writeFileSync(dirGame+"/index.css", cssFileCache);
     fs.writeFileSync(dirGame+"/index.html", htmlFileCache);
