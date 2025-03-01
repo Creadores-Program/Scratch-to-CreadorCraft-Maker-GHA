@@ -22,7 +22,7 @@ try{
   function convertCCG(htms){
     console.info(prefix+"Convert Html to Game by CreatorCraft...");
     let jsFileCache = "";
-    let cssFileCache = "*{ position: fixed; width: 100%; height: 100%; top: 0%; left: 0%; bottom: 0%; right: 0%; border: none; }";
+    let cssFileCache = "iframe{ position: fixed; width: 100%; height: 100%; top: 0%; left: 0%; bottom: 0%; right: 0%; border: none; }";
     let htmlFileCache = "<!DOCTYPE html><html><body><iframe  srcdoc='"+htms.replaceAll("&", "&amp;").replaceAll('"', "&#34;").replaceAll(/(\r\n|\r|\n)/g, "&#10;").replaceAll("<", "&#60;").replaceAll(">", "&#62;").replaceAll("'", "&#39;")+"'>Error! Not Load</iframe></body></html>";
     fs.writeFileSync(dirGame+"/main.js", jsFileCache);
     fs.writeFileSync(dirGame+"/index.css", cssFileCache);
