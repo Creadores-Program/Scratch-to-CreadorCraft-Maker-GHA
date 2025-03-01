@@ -21,27 +21,12 @@ try{
   var scratchG;
   function convertCCG(htms){
     console.info(prefix+"Convert Html to Game by CreatorCraft...");
-    let $ = cheerio.load(htms);
     let jsFileCache = "";
-    jsFileCache += "$('pprojr').each(function(){ $('body').append(`<script type='p4-project'>`+$(this).html()+`<`+`/script>`); $(this).remove(); });\n";
-    $("script").each(function(){
-      if($(this).attr("type") == "p4-project"){
-        $("body").append("<pprojr>"+$(this).html()+"</pprojr>");
-        $(this).remove();
-        return;
-      }
-      jsFileCache += $(this).html() + "\n";
-      $(this).remove();
-    });
-    let cssFileCache = "";
-    cssFileCache += "pprojr{ display: none; visibility: hidden; }\n";
-    $("style").each(function(){
-      cssFileCache += $(this).html() + "\n";
-      $(this).remove();
-    });
+    let cssFileCache = "iframe{ top: 0%; left: 0%; bottom: 0%; width: 100%; height: 100%; right: 0%; border: none; }";
+    let htmlFileCache = "<iframe  srcdoc='"+htms.replaceAll("'", "\\'")+"'>Error! Not Load</iframe>";
     fs.writeFileSync(dirGame+"/main.js", jsFileCache);
     fs.writeFileSync(dirGame+"/index.css", cssFileCache);
-    fs.writeFileSync(dirGame+"/index.html", $.html());
+    fs.writeFileSync(dirGame+"/index.html", htmlFileCache);
     console.info(prefix+"Done!");
     console.info(prefix+"Saved Your project in "+dirGame+"/*");
   }
