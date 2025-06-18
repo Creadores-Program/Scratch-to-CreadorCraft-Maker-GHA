@@ -55,7 +55,7 @@ jobs:
           pathGame: "./Game.sb3" # Only uses 1 of the above
       # Pack..
       - name: CreadorCraft-Maker
-        uses: Creadores-Program/CreadorCraft-Maker-GHA@v1.1.0
+        uses: Creadores-Program/CreadorCraft-Maker-GHA@v1.2.0
         with:
           path: "./src"
       - name: Upload Artifact
